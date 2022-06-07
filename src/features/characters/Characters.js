@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getCharacters } from '../../features/characters/charactersSlice'
+import { getCharacters } from './charactersSlice'
+import {
+    Link
+} from "react-router-dom";
 
 const Characters = () => {
     const dispatch = useDispatch()
@@ -20,11 +23,10 @@ const Characters = () => {
             <ul>
                 {characters.map(character => (
                     <li key={character.char_id}>
+                        <Link to={`/${character.char_id}`}>
+                            <h2>{character.name}</h2>
+                        </Link>
                         <img src={character.img} alt={character.name} width="200" />
-                        <h2>{character.name}</h2>
-                        <p>{character.birthday}</p>
-                        <p>{character.occupation}</p>
-                        <p>{character.img}</p>
                     </li>
                 ))}
             </ul>

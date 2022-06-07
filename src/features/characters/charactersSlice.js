@@ -11,11 +11,9 @@ const url = "https://breakingbadapi.com/api/characters";
 
 export const getCharacters = createAsyncThunk("characters/getCharacters", async () => {
     const response = await axios.get(url);
-    // console.log(response.data);
+    console.log("characters");
     return response.data;
 });
-
-
 
 
 
