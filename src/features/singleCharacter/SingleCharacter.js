@@ -7,21 +7,19 @@ import { useParams } from 'react-router-dom'
 const SingleCharacter = () => {
     const dispatch = useDispatch()
     const singleCharacter = useSelector(state => state.singleCharacter.singleCharacter)
-    const loading = useSelector(state => state.singleCharacter.loading)
+    const loadingCharacter = useSelector(state => state.singleCharacter.loading)
     const { id } = useParams()
 
     useEffect(() => {
-        if (!loading) {
+        if (!loadingCharacter) {
             dispatch(getSingleCharacter(id))
         }
     }, [])
 
-    console.log(id)
 
-    console.log(singleCharacter[0])
+
     return (
         <div>
-            {loading && <div>Loading...</div>}
             {singleCharacter[0] && (
                 <div>
                     <img src={singleCharacter[0].img} alt={singleCharacter[0].name} width="200" />
