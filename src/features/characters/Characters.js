@@ -4,6 +4,7 @@ import { getCharacters } from './charactersSlice'
 import {
     Link
 } from "react-router-dom";
+import './character.css'
 
 const Characters = () => {
     const dispatch = useDispatch()
@@ -16,17 +17,16 @@ const Characters = () => {
     }, [])
 
     return (
-        <div>
-            <h1>Breaking Bad Characters</h1>
+        <div className='characters' >
             {loading && <div>Loading...</div>}
             {error && <div>{error}</div>}
-            <ul>
+            <ul className='characters-grid'>
                 {characters.map(character => (
-                    <li key={character.char_id}>
-                        <Link to={`/${character.char_id}`}>
-                            <h2>{character.name}</h2>
+                    <li key={character.char_id} className="character-card">
+                        <Link to={`/${character.char_id}`}  >
+                            <img src={character.img} alt={character.name} width="200" className='character-img' />
+                            <h4 className="character-name"> {character.name}</h4>
                         </Link>
-                        <img src={character.img} alt={character.name} width="200" />
                     </li>
                 ))}
             </ul>
