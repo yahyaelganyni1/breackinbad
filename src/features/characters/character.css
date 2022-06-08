@@ -1,0 +1,34 @@
+.characters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 0.6rem;
+  grid-auto-rows: minmax(100px, auto);
+  justify-items: center;
+}
+
+.character-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  margin: 0.5rem;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.character-card:hover {
+  transform: scale(1.05);
+}
+
+.character-name {
+  font-size: 1em;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  color: #6b604f;
+}
